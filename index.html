@@ -1,0 +1,52 @@
+<html>
+<head>
+<script type="text/javascript"  src="dygraph-combined.js"></script>
+<script type="text/javascript" src="dygraph-extra.js"></script> 
+</head>
+<body>
+ <div id="legend" ></div>
+ <div id="graphdiv1"  style="width:80%; height:80%;"></div>
+ <p><button id="freeRam-btn">show free RAM image</button> </p> 
+ <p><img id="freeRam-img"/></p> 
+ 
+ <script type="text/javascript">
+
+    chart = new Dygraph(document.getElementById("graphdiv1"),
+    // path to CSV file
+	"rpi_temperature.csv",
+     {
+         legend: 'always',         
+       	 xlabel: 'Time',
+         ylabel: ' Temperatur in °C',
+       
+         labelsDiv: document.getElementById('legend'),        
+		 
+	 }
+    );   
+    function createImage(ID,graph)
+    {
+        if(!Dygraph.Export.isSupported())
+        {
+            var notsupported=document.getElementById('notsupported')
+            notsupported.style.display='block'            
+            var exportDiv=document.getElementById(ID)
+            exportDiv.style.display='none'
+            return	
+        }
+        
+        var img=document.getElementById('freeRam-img')
+        Dygraph.Export.asPNG(graph,img)
+    };
+    
+    var btn=document.getElementById("freeRam-btn");
+    btn.onclick=function(){createImage("graphdiv1",chart)};
+    
+    setInterval(
+                function()
+                {
+                    chart.updateOptions({'file': "rpi_temperature.csv"});
+                },10000
+               )
+</script>
+</body>
+</html>
