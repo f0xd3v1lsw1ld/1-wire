@@ -31,7 +31,7 @@ def main():
     file = open("/home/pi/1-wire/rpi_temperature.csv","ab")
     writer = csv.writer(file,delimiter=',')
     temperature=[]
-    temperature.append(strftime("%Y-%m-%d %H:%M:%S", gmtime()))        
+    temperature.append(strftime("%Y-%m-%d %H:%M:%S", localtime()))        
     temperature.append(getGpuTemperature())
     temperature.append(getCpuTemperature())
     temperature.append(getTemperature())
