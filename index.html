@@ -6,8 +6,8 @@
 <body>
  <div id="legend" ></div>
  <div id="graphdiv1"  style="width:80%; height:80%;"></div>
- <p><button id="freeRam-btn">show free RAM image</button> </p> 
- <p><img id="freeRam-img"/></p> 
+ <p><button id="temperature-btn">show temperature image</button> </p> 
+ <p><img id="temperature-img"/></p> 
  
  <script type="text/javascript">
 
@@ -34,19 +34,12 @@
             return	
         }
         
-        var img=document.getElementById('freeRam-img')
+        var img=document.getElementById('temperature-img')
         Dygraph.Export.asPNG(graph,img)
     };
     
-    var btn=document.getElementById("freeRam-btn");
+    var btn=document.getElementById("temperature-btn");
     btn.onclick=function(){createImage("graphdiv1",chart)};
-    
-    setInterval(
-                function()
-                {
-                    chart.updateOptions({'file': "rpi_temperature.csv"});
-                },10000
-               )
 </script>
 </body>
 </html>
