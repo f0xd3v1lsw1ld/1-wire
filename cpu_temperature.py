@@ -2,7 +2,7 @@
 import os
 import csv
 import time
-from time import gmtime, strftime
+from time import localtime, strftime
 
 def getGpuTemperature():
  #use full path to use in cron job
