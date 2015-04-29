@@ -3,6 +3,7 @@ import os
 import csv
 import time
 from time import localtime, strftime
+import database_temperature
 
 def getGpuTemperature():
  #use full path to use in cron job
@@ -30,13 +31,22 @@ def main():
           
     file = open("/home/pi/1-wire/rpi_temperature.csv","ab")
     writer = csv.writer(file,delimiter=',')
+    
+    timestamp = strftime("%Y-%m-%d %H:%M:%S", localtime())
+    gpu = getGpuTemperature()
+    cpu = getCpuTemperature()
+    ambient = getTemperature()
+    
     temperature=[]
-    temperature.append(strftime("%Y-%m-%d %H:%M:%S", localtime()))        
-    temperature.append(getGpuTemperature())
-    temperature.append(getCpuTemperature())
-    temperature.append(getTemperature())
+    temperature.append(timestamp)        
+    temperature.append(gpu)
+    temperature.append(cpu)
+    temperature.append(ambient)
+    
     writer.writerow(temperature)    
     file.close()
+    
+    database_temperature.insert_in_db("temperatures.db",timestamp, gpu, cpu, ambient )
         
 
 
