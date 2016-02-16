@@ -7,7 +7,7 @@
 #      day of the month(1-31)
 #        month of the year(1-12)
 #          day of the week(0-6, starts with 0=Sunday)
-# 00 0 * * * /home/pi/1-wire/move.sh /home/pi/1-wire rpi_temperature.csv
+# 00 0 * * * /home/pi/1-wire/move.sh /home/pi/1-wire rpi_temperature.csv>>/dev/null
 
 
 #store date of yesterday i.e. 20150325
@@ -27,7 +27,11 @@ if [ ! -d $1 ]; then
     exit
 fi
 
-#control if the first parameter is an existing file
+
+#go into the directory
+cd $1
+
+#control if the second parameter is an existing file
 # if not print an error and exit
 if [ ! -f $2 ]; then
     echo "No such file $2"
