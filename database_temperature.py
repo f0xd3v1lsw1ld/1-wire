@@ -1,3 +1,4 @@
+#!/usr/bin/python
 __author__ = 'f0xd3v1lsw1ld'
 
 #SELECT timestamp, avg(ambient) FROM temperature WHERE timestamp BETWEEN "2015-03-29 " AND "2015-03-30"

@@ -1,4 +1,5 @@
 #!/usr/bin/python
+__author__ = 'f0xd3v1lsw1ld'
 import os
 import csv
 import time
