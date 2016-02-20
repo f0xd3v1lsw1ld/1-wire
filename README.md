@@ -15,32 +15,19 @@ Dieses Skript liest die Temperaturen der GPU, CPU und eines 1-wire Temperatursen
 Dieses Skript hat zwei Einsatzmöglichkeiten. Erstens wird es von cpu_temperature.py zum Speichern der Temperaturwerte in der Datenbank aufgerufen. Zweitens kann dieses alleine dazu genutzt werden die Statistikfunktionen zu nutzen.
 
 ```
-
 $./database_temperature.py
-
 usage: database_temperature.py [-h] [-i] [-d DIRECTORY] [--min] [--max]
                                [--avg] [-s START] [-e END] [-p]
-
 optional arguments:
-
   -h, --help    show this help message and exit
-
   -i            import all csv files of current dir
-
   -d DIRECTORY  set working directory
-
   --min         show mininmal value
-
   --max         show maximal value
-
   --avg         show average value
-
   -s START      set start date YYYY-MM-DD
-
   -e END        set end date YYYY-MM-DD
-
   -p            print values
-
 ```
 
 ##move.sh
