@@ -44,11 +44,8 @@ Visualisierung der CSV Messdaten mittels dygraph im Browser. Mehr dazu gibt es z
 Zuerst muss das projekt von github gecloned werden. Dazu zuerst ins HOME Verzeichnis wechseln.
 
 ```
-
 $cd ~
-
 $ git clone https://github.com/f0xd3v1lsw1ld/1-wire.git
-
 ```
 
 Nachdem nun alle Projektdatein beschrieben sind, erfolgt die Aktivierung der automatischen Messwertaufnahme. Dazu muss crontab geöffnet werden und die folgenden beiden Zeilen (für die Messwertaufnahme und die CSV Umbenennung) eingetragen werden. Evtl. muss der Pfad für die Skripte an des entsprechende Setup angepasst werden.
