@@ -51,11 +51,8 @@ $ git clone https://github.com/f0xd3v1lsw1ld/1-wire.git
 Nachdem nun alle Projektdatein beschrieben sind, erfolgt die Aktivierung der automatischen Messwertaufnahme. Dazu muss crontab geöffnet werden und die folgenden beiden Zeilen (für die Messwertaufnahme und die CSV Umbenennung) eingetragen werden. Evtl. muss der Pfad für die Skripte an des entsprechende Setup angepasst werden.
 ```
 crontab -e 
-
 */10 * * * * /home/pi/1-wire/cpu_temperature.py>>/dev/null
-
 00 0 * * * /home/pi/1-wire/move.sh /home/pi/1-wire/ rpi_temperature.csv>>/dev/null
-
 ```
 
 **Erklärung**
